@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Best Watches</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+        }
+        .category-nav {
+            background-color: #444;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 10px;
+            border-bottom: 2px solid #333;
+        }
+        .category-nav h2 {
+            color: white;
+            cursor: pointer;
+            margin: 0;
+            padding: 10px;
+            font-size: 18px;
+            transition: background-color 0.3s ease;
+        }
+        .category-nav h2:hover {
+            background-color: #555;
+        }
+        .container {
+            display: flex;
+            justify-content: flex-start; /* Balról jobbra rendezi az elemeket */
+            align-items: flex-start; /* Az elemek a bal oldalon kezdődnek */
+            gap: 20px;
+            padding: 20px;
+            flex-wrap: nowrap; /* Ne törjön sorba az elemek */
+            overflow-x: auto; /* Lehetővé teszi az oldal görgetését, ha szükséges */
+        }
+        .category {
+            display: none;
+            flex: 0 0 auto; /* Nem hajlik meg, csak az alapméretük a fontos */
+            margin-top: 20px;
+        }
+        .category .item {
+            width: 200px;  /* A képek és elemek fix szélessége */
+            padding: 10px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            text-align: center;
+            box-sizing: border-box;
+            transition: transform 0.3s ease;
+            margin-right: 10px; /* Különbség az elemek között */
+        }
+        .category .item img {
+            width: 100%;  /* A képek a teljes szélességet elfoglalják */
+            height: auto;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+        .category .item p {
+            margin: 10px 0;
+            font-size: 14px;
+        }
+        .category .item:hover {
+            transform: scale(1.05); /* Kisebb nagyítás hover hatásra */
+        }
+        .category .price {
+            font-weight: bold;
+            color: green;
+        }
+        .button {
+            width: auto;
+            padding: 8px 15px;
+            margin-top: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .button:hover {
+            background-color: #45a049;
+        }
+
+        .back-button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            width: 100%;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+        .back-button:hover {
+            background-color: #45a049;
+        }
+
+        /* Kosár stílusok */
+        #cart {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: white;
+            border: 1px solid #ddd;
+            padding: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 200px;
+            display: none;
+        }
+        #cart h3 {
+            margin-top: 0;
+        }
+        #cart-items {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        #cart-items li {
+            margin-bottom: 5px;
+        }
+
+        /* Kosár ikon */
+        #cart-icon {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            background-color: #4CAF50;
+            border-radius: 50%;
+            color: white;
+            font-size: 20px;
+            text-align: center;
+            line-height: 50px;
+            cursor: pointer;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: none;
+        }
+        #cart-icon.show {
+            display: block;
+        }
+
+        @media (max-width: 1024px) {
+            .container {
+                justify-content: flex-start;
+            }
+            .category {
+                width: 200px; /* Még kisebb méret tablet nézetben */
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                justify-content: flex-start;
+                overflow-x: auto;
+            }
+            .category {
+                width: 150px; /* Mobil nézetben kisebbek az elemek */
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Best Watches</h1>
+    </header>
+
+    <!-- Kategóriák navigációja -->
+    <div class="category-nav">
+        <h2 onclick="toggleCategory('armi')">Armani órák</h2>
+        <h2 onclick="toggleCategory('fossil')">Fossil órák</h2>
+        <h2 onclick="toggleCategory('rolex')">Rolex órák</h2>
+        <h2 onclick="toggleCategory('tag')">Tag Heuer órák</h2>
+    </div>
+
+    <div class="container">
+        <!-- Kategória 1 - Armani órák -->
+        <div class="category" id="armi">
+            <div class="item">
+                <img src="armi1.webp" alt="Armani fekete">
+                <p class="price">Ár: 39 990 Ft</p>
+                <button class="button" onclick="addToCart('Armani fekete', 39990)">Megvásárol</button>
+            </div>
+            <div class="item">
+                <img src="armi2.webp" alt="Armani ezüst">
+                <p class="price">Ár: 42 990 Ft</p>
+                <button class="button" onclick="addToCart('Armani ezüst', 42990)">Megvásárol</button>
+            </div>
+            <div class="item">
+                <img src="armi3.webp" alt="Armani barna">
+                <p class="price">Ár: 45 990 Ft</p>
+                <button class="button" onclick="addToCart('Armani barna', 45990)">Megvásárol</button>
+            </div>
+            <div class="item">
+                <img src="armi4.webp" alt="Armani kék">
+                <p class="price">Ár: 41 990 Ft</p>
+                <button class="button" onclick="addToCart('Armani kék', 41990)">Megvásárol</button>
+            </div>
+            <div class="item">
+                <img src="armi5.webp" alt="Armani fekete ezüst">
+                <p class="price">Ár: 37 990 Ft</p>
+                <button class="button" onclick="addToCart('Armani fekete ezüst', 37990)">Megvásárol</button>
+            </div>
+        </div>
+
+        <!-- Kategória 2 - Fossil órák -->
+        <div class="category" id="fossil">
+            <div class="item">
+                <p>Fossil férfi órák</p>
+                <p class="price">Ár: 29 990 Ft</p>
+                <button class="button" onclick="addToCart('Fossil férfi óra', 29990)">Megvásárol</button>
+            </div>
+            <div class="item">
+                <p>Fossil női órák</p>
+                <p class="price">Ár: 24 990 Ft</p>
+                <button class="button" onclick="addToCart('Fossil női óra', 24990)">Megvásárol</button>
+            </div>
+            <div class="item">
+                <p>Fossil okosóra</p>
+                <p class="price">Ár: 54 990 Ft</p>
+                <button class="button" onclick="addToCart('Fossil okosóra', 54990)">Megvásárol</button>
+            </div>
+            <div class="item">
+                <p>Fossil divatos férfi óra</p>
+                <p class="price">Ár: 34 990 Ft</p>
+                <button class="button" onclick="addToCart('Fossil divatos férfi óra', 34990)">Megvásárol</button>
+            </div>
+            <div class="item">
+                <p>Fossil sportos női óra</p>
+                <p class="price">Ár: 27 990 Ft</p>
+                <button class="button" onclick="addToCart('Fossil sportos női óra', 27990)">Megvásárol</button>
+            </div>
+        </div>
+
+        <!-- Kategória 3 - Rolex órák -->
+        <div class="category" id="rolex">
+            <div class="item">
+                <p>Rolex férfi karóra</p>
+                <p class="price">Ár: 799 990 Ft</p>
+                <button class="button" onclick="addToCart('Rolex férfi karóra', 799990)">Megvásárol</button>
+            </div>
+            <div class="item">
+                <p>Rolex női karóra</p>
+                <p class="price">Ár: 999 990 Ft</p>
+                <button class="button" onclick="addToCart('Rolex női karóra', 999990)">Megvásárol</button>
+            </div>
+            <div class="item">
+                <p>Rolex sportos férfi karóra</p>
+                <p class="price">Ár: 1 199 990 Ft</p>
+                <button class="button" onclick="addToCart('Rolex sportos férfi karóra', 1199990)">Megvásárol</button>
+            </div>
+        </div>
+
+        <!-- Kategória 4 - Tag Heuer órák -->
+        <div class="category" id="tag">
+            <div class="item">
+                <p>Tag Heuer férfi karóra</p>
+                <p class="price">Ár: 499 990 Ft</p>
+                <button class="button" onclick="addToCart('Tag Heuer férfi karóra', 499990)">Megvásárol</button>
+            </div>
+            <div class="item">
+                <p>Tag Heuer okosóra</p>
+                <p class="price">Ár: 599 990 Ft</p>
+                <button class="button" onclick="addToCart('Tag Heuer okosóra', 599990)">Megvásárol</button>
+            </div>
+            <div class="item">
+                <p>Tag Heuer női karóra</p>
+                <p class="price">Ár: 799 990 Ft</p>
+                <button class="button" onclick="addToCart('Tag Heuer női karóra', 799990)">Megvásárol</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Kosár -->
+    <div id="cart">
+        <h3>Kosár</h3>
+        <ul id="cart-items"></ul>
+        <p id="total-price"></p> <!-- Összesített ár megjelenítése -->
+        <button onclick="goToCheckout()">Pénztár</button>
+        <button class="back-button" onclick="goBack()">Vissza a kosárhoz</button>
+    </div>
+
+    <!-- Kosár ikon -->
+    <div id="cart-icon" class="show" onclick="showCart()">
+        🛒
+    </div>
+
+    <script>
+        let cart = [];
+        let lastOpenedCategory = null;
+
+        function addToCart(item, price) {
+            cart.push({ item: item, price: price });
+            updateCart();
+        }
+
+        function updateCart() {
+            let cartItems = document.getElementById("cart-items");
+            let cartIcon = document.getElementById("cart-icon");
+            let totalPriceElement = document.getElementById("total-price");
+            cartItems.innerHTML = "";
+            
+            let totalPrice = 0; 
+
+            cart.forEach(function(product) {
+                let li = document.createElement("li");
+                li.textContent = `${product.item} - ${product.price} Ft`;
+                cartItems.appendChild(li);
+                totalPrice += product.price;
+            });
+
+            if (totalPrice > 0) {
+                totalPriceElement.textContent = `Összesen: ${totalPrice} Ft`;
+            } else {
+                totalPriceElement.textContent = "";
+            }
+
+            if (cart.length > 0) {
+                cartIcon.classList.add("show");
+            } else {
+                cartIcon.classList.remove("show");
+            }
+        }
+
+        function showCart() {
+            let cartDiv = document.getElementById("cart");
+            if (cartDiv.style.display === "block") {
+                cartDiv.style.display = "none";
+            } else {
+                cartDiv.style.display = "block";
+            }
+        }
+
+        function goToCheckout() {
+            window.location.href = "checkout.html";
+        }
+
+        function goBack() {
+            location.reload();
+        }
+
+        function toggleCategory(categoryId) {
+            let category = document.getElementById(categoryId);
+            let isVisible = category.style.display === "block";
+
+            if (lastOpenedCategory && lastOpenedCategory !== categoryId) {
+                document.getElementById(lastOpenedCategory).style.display = "none";
+            }
+
+            category.style.display = isVisible ? "none" : "block";
+            lastOpenedCategory = isVisible ? null : categoryId;
+        }
+    </script>
+</body>
+</html>

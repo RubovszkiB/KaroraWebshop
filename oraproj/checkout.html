@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pénztár</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+        }
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            text-align: center;
+        }
+        #cart-items {
+            list-style-type: none;
+            padding: 0;
+        }
+        #cart-items li {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+        .total {
+            font-weight: bold;
+            text-align: right;
+            margin-top: 10px;
+        }
+        .button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            width: 100%;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+        .button:hover {
+            background-color: #45a049;
+        }
+        .rating {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .stars {
+            display: inline-block;
+            position: relative;
+        }
+        .star {
+            font-size: 30px;
+            cursor: pointer;
+            color: white; /* Alapértelmezetten fehér */
+        }
+        /* Kattintás utáni színek */
+        .star:nth-child(1).selected {
+            color: red;
+        }
+        .star:nth-child(2).selected {
+            color: orange;
+        }
+        .star:nth-child(3).selected {
+            color: yellow;
+        }
+        .star:nth-child(4).selected {
+            color: lightgreen;
+        }
+        .star:nth-child(5).selected {
+            color: green;
+        }
+        #thank-you-message {
+            margin-top: 10px;
+            font-weight: bold;
+            color: #333;
+        }
+        .labels {
+            display: flex;
+            justify-content: space-between;
+            width: 150px;
+            margin: 5px auto 0;
+            font-size: 14px;
+            color: #333;
+        }
+        .feedback {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .feedback textarea {
+            width: 100%;
+            height: 100px;
+            border-radius: 5px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            resize: none;
+        }
+        .feedback button {
+            margin-top: 10px;
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .feedback button:hover {
+            background-color: #45a049;
+        }
+        .thank-you-message {
+            display: none;
+            margin-top: 10px;
+            color: green;
+            font-weight: bold;
+            text-align: center; /* Középre igazítjuk */
+            font-size: 30px; /* Megnöveljük a betűméretet kétszeresére */
+        }
+
+        /* Vélemény elküldése után a csillagok eltüntetése */
+        #star-rating {
+            display: block;
+        }
+
+        /* Ha már elküldte a véleményt, elrejtjük a csillagokat */
+        #star-rating.hide-stars {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Pénztár</h1>
+    </header>
+    <div class="container">
+        <h2>Kosár tartalma</h2>
+        <ul id="cart-items">
+            <!-- Kosár elemei ide kerülnek -->
+        </ul>
+        <p class="total">Összesen: <span id="total-price">0</span> Ft</p>
+        <button class="button" onclick="completePurchase()">Rendelés leadása</button>
+        <button class="button" onclick="goBack()">Vissza a vásárláshoz</button>
+    </div>
+    
+    <div class="rating">
+        <h3>Értékelés</h3>
+        <div class="labels">
+            <span>Elégtelen</span>
+            <span>Kiváló</span>
+        </div>
+        <div class="stars" id="star-rating">
+            <span class="star" data-value="1">★</span>
+            <span class="star" data-value="2">★</span>
+            <span class="star" data-value="3">★</span>
+            <span class="star" data-value="4">★</span>
+            <span class="star" data-value="5">★</span>
+        </div>
+        <p id="thank-you-message"></p>
+    </div>
+
+    <div class="feedback">
+        <h3>Ossza meg véleményét</h3>
+        <textarea id="feedback-text" placeholder="Írja le véleményét..."></textarea>
+        <button id="submit-feedback">Beküldés</button>
+    </div>
+    
+    <p id="thank-you-feedback" class="thank-you-message">Köszönjük a véleményét!</p>
+    
+    <script>
+        function loadCart() {
+            let cart = JSON.parse(localStorage.getItem("cart")) || [];
+            let cartItems = document.getElementById("cart-items");
+            let totalPrice = document.getElementById("total-price");
+            cartItems.innerHTML = "";
+            let total = 0;
+            cart.forEach(product => {
+                let li = document.createElement("li");
+                li.textContent = `${product.item} - ${product.price} Ft`;
+                cartItems.appendChild(li);
+                total += product.price;
+            });
+            totalPrice.textContent = total;
+        }
+        
+        function completePurchase() {
+            alert("Köszönjük a vásárlást! A rendelésedet feldolgozzuk.");
+            localStorage.removeItem("cart");
+            window.location.href = "index.html";
+        }
+        
+        function goBack() {
+            window.location.href = "index.html";
+        }
+        
+        loadCart();
+
+        // Csillagok kattintásának kezelése
+        document.querySelectorAll(".star").forEach(star => {
+            star.addEventListener("click", function() {
+                let value = this.getAttribute("data-value");
+                document.querySelectorAll(".star").forEach(s => {
+                    s.classList.remove("selected");
+                });
+                // Kattintás utáni csillagok színe
+                for (let i = 0; i < value; i++) {
+                    document.querySelectorAll(".star")[i].classList.add("selected");
+                }
+                // Értékelés megjelenítése
+                document.getElementById("thank-you-message").textContent = `Köszönjük az értékelést!`;
+            });
+        });
+
+        // Vélemény elküldésének kezelése
+        document.getElementById("submit-feedback").addEventListener("click", function() {
+            let feedbackText = document.getElementById("feedback-text").value;
+            if (feedbackText) {
+                // Vélemény mező eltüntetése
+                document.getElementById("feedback-text").style.display = "none";
+                // "Beküldés" gomb eltüntetése
+                document.getElementById("submit-feedback").style.display = "none";
+                // Köszönet üzenet megjelenítése
+                document.getElementById("thank-you-feedback").style.display = "block";
+                // Csillagok eltüntetése
+                document.getElementById("star-rating").classList.add("hide-stars");
+            } else {
+                alert("Kérjük, írjon véleményt!");
+            }
+        });
+    </script>
+</body>
+</html>
