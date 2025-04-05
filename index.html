@@ -6,18 +6,19 @@
   <title>Karóra Webshop</title>
   <link rel="stylesheet" href="styles.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
 </head>
 <body class="d-flex flex-column min-vh-100">
 
 <!-- NAVBAR -->
 <nav class="navbar navbar-expand-lg bg-secondary text-white fw-bold">
   <div class="container-fluid">
-    <a class="navbar-brand text-white" href="#">Karóra Webshop</a>
+    <a class="navbar-brand text-white fs-3 fw-bold" href="#">Karóra Webshop</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ms-auto">
+      <ul class="navbar-nav ms-auto fs-6">
         <li class="nav-item"><a class="nav-link text-white" href="#">Főoldal</a></li>
         <li class="nav-item"><a class="nav-link text-white" href="#">Rólunk</a></li>
         <li class="nav-item"><a class="nav-link text-white" href="#">Admin</a></li>
@@ -26,6 +27,11 @@
     </div>
   </div>
 </nav>
+
+<!-- 🌼 Tavaszi akció banner -->
+<div class="spring-sale text-center">
+  Tavaszi akció – 10% kedvezmény minden termékre!
+</div>
 
 <!-- ÓRAGYÁRTÓK FELÜLET -->
 <div class="container mt-4 flex-grow-1">
@@ -89,6 +95,50 @@
         <li>Sky Moon Tourbillon</li>
         <li>Perpetual Calendar</li>
       </ul>
+    </div>
+  </div>
+</div>
+
+<!-- 🔥 KIEMELT TERMÉK KATEGÓRIÁK -->
+<div class="container my-5 d-flex justify-content-center" style="">
+  <div class="row g-4  justify-content-center" style="max-width: 1000px;">    <!-- Legnépszerűbb -->
+    <div class="col-md-6 col-lg-3">
+      <a href="legnepszerubb.html" class="text-decoration-none">
+        <div class="category-card position-relative overflow-hidden rounded-4">
+          <img src="https://www.citizenwatch.co.uk/media/catalog/product/n/j/nj0152-51x_catalog.png?optimize=high&bg-color=255,255,255&fit=bounds&height=1000&width=1000&canvas=1000:1000&format=jpeg" alt="Legnépszerűbb termékek" class="img-fluid w-100 h-100 object-fit-cover">
+          <div class="overlay-text">Legnépszerűbb termékek</div>
+        </div>
+      </a>
+    </div>
+
+    <!-- Legolcsóbb -->
+    <div class="col-md-6 col-lg-3">
+      <a href="legolcsobb.html" class="text-decoration-none">
+        <div class="category-card position-relative overflow-hidden rounded-4">
+          <img src="https://www.citizenwatch.co.uk/media/catalog/product/n/j/nj0152-51x_catalog.png?optimize=high&bg-color=255,255,255&fit=bounds&height=1000&width=1000&canvas=1000:1000&format=jpeg" alt="Legolcsóbb termékeink" class="img-fluid w-100 h-100 object-fit-cover">
+          <div class="overlay-text">Legolcsóbb termékeink</div>
+        </div>
+      </a>
+    </div>
+
+    <!-- Legkülönlegesebb -->
+    <div class="col-md-6 col-lg-3">
+      <a href="legkulonlegesebb.html" class="text-decoration-none">
+        <div class="category-card position-relative overflow-hidden rounded-4">
+          <img src="https://www.citizenwatch.co.uk/media/catalog/product/n/j/nj0152-51x_catalog.png?optimize=high&bg-color=255,255,255&fit=bounds&height=1000&width=1000&canvas=1000:1000&format=jpeg" alt="Legkülönlegesebb termékeink" class="img-fluid w-100 h-100 object-fit-cover">
+          <div class="overlay-text">Legkülönlegesebb termékeink</div>
+        </div>
+      </a>
+    </div>
+
+    <!-- Akciós -->
+    <div class="col-md-6 col-lg-3">
+      <a href="akcios.html" class="text-decoration-none">
+        <div class="category-card position-relative overflow-hidden rounded-4">
+          <img src="https://www.citizenwatch.co.uk/media/catalog/product/n/j/nj0152-51x_catalog.png?optimize=high&bg-color=255,255,255&fit=bounds&height=1000&width=1000&canvas=1000:1000&format=jpeg" alt="Akciós óráink" class="img-fluid w-100 h-100 object-fit-cover">
+          <div class="overlay-text">Akciós óráink</div>
+        </div>
+      </a>
     </div>
   </div>
 </div>
