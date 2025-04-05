@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rolex Submariner</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="d-flex flex-column min-vh-100">
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg bg-secondary text-white fw-bold">
+    <div class="container-fluid">
+      <a class="navbar-brand text-white fs-3 fw-bold" href="index.html">Rolex - Webshop</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto fs-6">
+          <li class="nav-item"><a class="nav-link text-white" href="index.html">Főoldal</a></li>
+          <li class="nav-item"><a class="nav-link text-white" href="#">Rólunk</a></li>
+          <li class="nav-item"><a class="nav-link text-white" href="#">Admin</a></li>
+          <li class="nav-item"><a class="nav-link text-white" href="kosar.html">🛒 Kosár</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- TARTALOM -->
+  <div class="container my-5 flex-grow-1">
+    <div class="row align-items-center">
+      <!-- Óra képe -->
+      <div class="col-md-6 mb-4 mb-md-0">
+        <img src="https://www.citizenwatch.co.uk/media/catalog/product/n/j/nj0152-51x_catalog.png?optimize=high&bg-color=255,255,255&fit=bounds&height=1000&width=1000&canvas=1000:1000&format=jpeg" alt="Rolex Submariner" class="img-fluid rounded shadow">
+      </div>
+      <!-- Leírás és mennyiség választás -->
+      <div class="col-md-6">
+        <h2 class="mb-3">Rolex Submariner</h2>
+        <p class="lead">
+          A Rolex Submariner az egyik legismertebb búváróra, amely ikonikus státuszt ért el a luxusóra világában.
+        </p>
+        <!-- Mennyiség választása -->
+        <div class="mb-3">
+          <label for="product-quantity" class="form-label">Mennyiség:</label>
+          <input type="number" id="product-quantity" class="form-control" value="1" min="1">
+        </div>
+        <!-- Kosárba gomb -->
+        <button class="btn btn-primary btn-lg" onclick="addToCart()">Kosárba ➕</button>
+      </div>
+    </div>
+
+    <!-- Ár és történet -->
+    <div class="row mt-5">
+      <div class="col-md-4 mb-3">
+        <h4>Ár:</h4>
+        <p class="fs-5 text-success fw-bold">3 990 000 Ft</p>
+      </div>
+      <div class="col-md-5 mb-3">
+        <h4>Történet:</h4>
+        <p>
+          A Submariner-t 1953-ban mutatták be, azóta a mélytengeri búvárok és óragyűjtők egyik kedvence.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer bg-info text-white text-center p-3 mt-auto">
+    <div class="container">
+      <p class="mb-0">Elérhetőség: +36 20 123 4567 - Miskolc, Kandó Kálmán tér 1.</p>
+      <p>Adatvédelem | Felhasználási Feltételek | Süti Kezelés</p>
+    </div>
+  </footer>
+
+  <!-- JavaScript: Kosárba helyezés mennyiséggel -->
+  <script>
+    function addToCart() {
+      const quantityInput = document.getElementById("product-quantity");
+      let quantity = parseInt(quantityInput.value, 10);
+      if (isNaN(quantity) || quantity < 1) {
+        quantity = 1;
+      }
+      
+      // Lekéri a kosár tartalmát vagy inicializál egy üres tömböt
+      const cart = JSON.parse(localStorage.getItem("cart")) || [];
+      const productName = "Rolex Submariner";
+      
+      // Ha már szerepel a kosárban, frissítjük a mennyiséget
+      const existingIndex = cart.findIndex(item => item.name === productName);
+      if (existingIndex !== -1) {
+        cart[existingIndex].quantity += quantity;
+      } else {
+        // Új termék hozzáadása
+        const product = {
+          name: productName,
+          price: 3990000,
+          image: "https://www.citizenwatch.co.uk/media/catalog/product/n/j/nj0152-51x_catalog.png?optimize=high&bg-color=255,255,255&fit=bounds&height=1000&width=1000&canvas=1000:1000&format=jpeg",
+          description: "Egy legendás búváróra 300 méterig vízálló tokozással.",
+          quantity: quantity
+        };
+        cart.push(product);
+      }
+      
+      localStorage.setItem("cart", JSON.stringify(cart));
+      alert("Termék a kosárba került!");
+    }
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
