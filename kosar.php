@@ -9,8 +9,61 @@ session_start();
   <title>Kosár</title>
   <link rel="stylesheet" href="styles.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <!-- jQuery szükséges lehet az egyszerűbb kezeléshez -->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>
+    /* Egyedi dizájn a kosárhoz */
+    .cart-item {
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+      margin-bottom: 20px;
+      padding: 15px;
+      background-color: #f9f9f9;
+    }
+
+    .cart-item img {
+      max-width: 100%;
+      border-radius: 8px;
+      object-fit: cover;
+    }
+
+    .cart-item .card-body {
+      padding-top: 10px;
+    }
+
+    .total-price {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #28a745;
+    }
+
+    .btn-confirm {
+      background-color: #007bff;
+      border-color: #007bff;
+    }
+
+    .btn-confirm:hover {
+      background-color: #0056b3;
+      border-color: #004085;
+    }
+
+    .modal-body {
+      background-color: #f7f7f7;
+    }
+
+    .tab-content .form-label {
+      color: #333;
+    }
+
+    .footer {
+      background-color: #17a2b8;
+      color: white;
+      text-align: center;
+      padding: 10px;
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+    }
+  </style>
 </head>
 <body class="d-flex flex-column min-vh-100">
   <!-- NAVBAR -->
@@ -35,26 +88,25 @@ session_start();
   <div class="container my-5 flex-grow-1">
     <h2 class="text-center mb-4">Kosár tartalma</h2>
     <div id="cart-items" class="row g-4 justify-content-center">
-      <!-- Dinamikusan töltjük be a kosár elemeit a localStorage-ból (JS kezeli a kliensoldali elemeket) -->
+      <!-- Kosár elemek dinamikus betöltése -->
     </div>
     <div class="text-end mt-4">
-      <h4 id="total-amount">Végösszeg: 0 Ft</h4>
-      <!-- A megrendelés leadása gomb modal triggerként működik -->
-      <button class="btn btn-success" id="placeOrderBtn" data-bs-toggle="modal" data-bs-target="#orderModal">Megrendelés leadása</button>
+      <h4 id="total-amount" class="total-price">Végösszeg: 0 Ft</h4>
+      <button class="btn btn-success btn-lg" id="placeOrderBtn" data-bs-toggle="modal" data-bs-target="#orderModal">Megrendelés leadása</button>
     </div>
   </div>
 
-  <!-- MODÁL: Bejelentkezés/Regisztráció / Vásárlás megerősítése -->
+  <!-- MODÁL: Bejelentkezés / Vásárlás megerősítése -->
   <div class="modal fade" id="orderModal" tabindex="-1" aria-labelledby="orderModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="orderModalLabel">Fizetés és bejelentkezés</h5>
+          <h5 class="modal-title" id="orderModalLabel">Fizetés és Bejelentkezés</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Bezár"></button>
         </div>
         <div class="modal-body">
           <?php if (!isset($_SESSION['user'])): ?>
-            <!-- Ha nincs bejelentkezve, jelenjen meg a bejelentkezés/regisztráció -->
+            <!-- Bejelentkezés és Regisztráció -->
             <ul class="nav nav-tabs" id="authTab" role="tablist">
               <li class="nav-item" role="presentation">
                 <button class="nav-link active" id="login-tab" data-bs-toggle="tab" data-bs-target="#login" type="button" role="tab" aria-controls="login" aria-selected="true">Bejelentkezés</button>
@@ -96,7 +148,7 @@ session_start();
               </div>
             </div>
           <?php else: ?>
-            <!-- Ha be van jelentkezve, jelenjen meg a vásárlás megerősítése -->
+            <!-- Vásárlás megerősítése -->
             <div class="text-center">
               <h4>Ön be van jelentkezve: <?php echo htmlspecialchars($_SESSION['user']['name']); ?></h4>
               <p>Kérjük, erősítse meg a vásárlást!</p>
@@ -111,17 +163,16 @@ session_start();
   </div>
 
   <!-- FOOTER -->
-  <footer class="footer bg-info text-white text-center p-3 mt-auto">
+  <footer class="footer">
     <div class="container">
       <p class="mb-0">Elérhetőség: +36 20 123 4567 - Miskolc, Kandó Kálmán tér 1.</p>
       <p>Adatvédelem | Felhasználási Feltételek | Süti Kezelés</p>
     </div>
   </footer>
 
-  <!-- JavaScript: Bootstrap és a kosár kliensoldali kezelése -->
+  <!-- JavaScript -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <script>
-    // Példa: A kosár elemeit a localStorage-ból tölti be, és megjeleníti azokat.
     let cartItems = JSON.parse(localStorage.getItem("cart")) || [];
     const cartContainer = document.getElementById("cart-items");
     const totalAmountEl = document.getElementById("total-amount");
@@ -130,8 +181,8 @@ session_start();
     cartItems.forEach((item, index) => {
       total += item.price * item.quantity;
       cartContainer.innerHTML += `
-        <div class="col-md-6 col-lg-4">
-          <div class="card shadow-sm">
+        <div class="col-md-6 col-lg-4 cart-item">
+          <div class="card">
             <img src="${item.image}" class="card-img-top" alt="${item.name}">
             <div class="card-body">
               <h5 class="card-title">${item.name}</h5>

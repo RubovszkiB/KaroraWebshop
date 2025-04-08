@@ -7,6 +7,34 @@
   <link rel="stylesheet" href="styles.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+  <style>
+    .spring-sale {
+      background-color: #ff6b6b;
+      color: white;
+      padding: 1rem;
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+    .category-card {
+      height: 300px;
+      overflow: hidden;
+      transition: transform 0.3s;
+    }
+    .category-card:hover {
+      transform: scale(1.03);
+    }
+    .overlay-text {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(0, 0, 0, 0.7);
+      color: white;
+      padding: 1rem;
+      font-size: 1.2rem;
+      text-align: center;
+    }
+  </style>
 </head>
 <body class="d-flex flex-column min-vh-100">
 
@@ -22,7 +50,7 @@
           <li class="nav-item"><a class="nav-link text-white" href="index.html">Főoldal</a></li>
           <li class="nav-item"><a class="nav-link text-white" href="#">Rólunk</a></li>
           <li class="nav-item"><a class="nav-link text-white" href="#">Admin</a></li>
-          <li class="nav-item"><a class="nav-link text-white" href="kosar.html">🛒 Kosár</a></li>
+          <li class="nav-item"><a class="nav-link text-white" href="kosar.php">🛒 Kosár</a></li>
         </ul>
       </div>
     </div>
@@ -81,7 +109,11 @@
   <footer class="footer bg-info text-white text-center p-3 mt-auto">
     <div class="container">
       <p class="mb-0">Elérhetőség: +36 20 123 4567 - Miskolc, Kandó Kálmán tér 1. - rubovszkib@kkszki.hu</p>
-      <p>Adatvédelem | Felhasználási Feltételek | Süti Kezelés</p>
+      <p>
+        <a href="adatvedelem.html" class="text-white text-decoration-underline">Adatvédelem</a> |
+        <a href="felhasznalasi.html" class="text-white text-decoration-underline">Felhasználási Feltételek</a> |
+        <a href="sutik.html" class="text-white text-decoration-underline">Süti Kezelés</a>
+      </p>
     </div>
   </footer>
 

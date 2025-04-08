@@ -20,68 +20,137 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto fs-6">
         <li class="nav-item"><a class="nav-link text-white" href="#">Főoldal</a></li>
-        <li class="nav-item"><a class="nav-link text-white" href="#">Rólunk</a></li>
+        <li class="nav-item"><a class="nav-link text-white" href="rolunk.html">Rólunk</a></li>
         <li class="nav-item"><a class="nav-link text-white" href="#">Admin</a></li>
-        <li class="nav-item"><a class="nav-link text-white" href="kosar.html">🛒 Kosár</a></li>
+        <li class="nav-item"><a class="nav-link text-white" href="kosar.php">🛒 Kosár</a></li>
       </ul>
     </div>
   </div>
 </nav>
 
 <!-- 🌼 Tavaszi akció banner -->
-<div class="spring-sale text-center">
+<div class="spring-sale text-center py-2">
   Tavaszi akció – 10% kedvezmény minden termékre!
 </div>
-<!-- ÓRAGYÁRTÓK KÁRTYÁK -->
-<div class="container my-5 d-flex justify-content-center">
-  <div class="row g-4 justify-content-center" style="max-width: 1000px;">
+
+<!-- Hero Section -->
+<div class="hero-section position-relative mb-5">
+  <div class="container-fluid p-0">
+    <div class="row g-0">
+      <div class="col-12">
+        <div class="hero-image position-relative overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1523170335258-f5ed11844a49?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80" 
+               alt="Órakatalógus" 
+               class="img-fluid w-100" 
+               style="height: 70vh; object-fit: cover;">
+          <div class="hero-text position-absolute top-50 start-50 translate-middle text-center">
+            <h2 class="display-4 fw-bold text-white mb-4">Megtaláljuk Önnek<br>a tökéletes órát!</h2>
+            <a href="#gyartok" class="btn btn-primary btn-lg px-5">Fedezze fel kollekciónkat</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Gyártók Szekció -->
+<div id="gyartok" class="container my-5">
+  <h2 class="text-center mb-5">Nagyker partnereink</h2>
+  <div class="row g-4 justify-content-center">
+  <!-- Rolex -->
+<div class="col-6 col-md-3">
+  <a href="rolex.html" class="text-decoration-none">
+    <div class="brand-card bg-white p-4 text-center shadow-sm rounded-3 h-100">
+      <img src="https://1000logos.net/wp-content/uploads/2017/05/Rolex-Logo.png" 
+           alt="Rolex" 
+           class="img-fluid mb-3"
+           style="height: 80px; object-fit: contain;">
+      <h5 class="fw-bold">Rolex</h5>
+    </div>
+  </a>
+</div>
+
+<!-- Omega -->
+<div class="col-6 col-md-3">
+  <a href="omega.html" class="text-decoration-none">
+    <div class="brand-card bg-white p-4 text-center shadow-sm rounded-3 h-100">
+      <img src="https://1000logos.net/wp-content/uploads/2021/05/Omega-logo.png" 
+           alt="Omega" 
+           class="img-fluid mb-3"
+           style="height: 80px; object-fit: contain;">
+      <h5 class="fw-bold">Omega</h5>
+    </div>
+  </a>
+</div>
+
     
-    <!-- Rolex -->
-    <div class="col-md-6 col-lg-3">
-      <a href="rolex.html" class="text-decoration-none">
-        <div class="category-card position-relative overflow-hidden rounded-4">
-          <img src="https://www.citizenwatch.co.uk/media/catalog/product/n/j/nj0152-51x_catalog.png?optimize=high&bg-color=255,255,255&fit=bounds&height=1000&width=1000&canvas=1000:1000&format=jpeg" alt="Rolex" class="img-fluid w-100 h-100 object-fit-cover">
-          <div class="overlay-text">Rolex</div>
+    <!-- Seiko -->
+    <div class="col-6 col-md-3">
+      <a href="seiko.html" class="text-decoration-none">
+        <div class="brand-card bg-white p-4 text-center shadow-sm rounded-3 h-100">
+          <img src="https://www.logo.wine/a/logo/Seiko/Seiko-Logo.wine.svg" 
+               alt="Seiko" 
+               class="img-fluid mb-3"
+               style="height: 80px; object-fit: contain;">
+          <h5 class="fw-bold">Seiko</h5>
         </div>
       </a>
     </div>
 
-    <!-- Omega -->
-    <div class="col-md-6 col-lg-3">
-      <a href="omega.html" class="text-decoration-none">
-        <div class="category-card position-relative overflow-hidden rounded-4">
-          <img src="https://www.citizenwatch.co.uk/media/catalog/product/n/j/nj0152-51x_catalog.png?optimize=high&bg-color=255,255,255&fit=bounds&height=1000&width=1000&canvas=1000:1000&format=jpeg" alt="Omega" class="img-fluid w-100 h-100 object-fit-cover">
-          <div class="overlay-text">Omega</div>
-        </div>
-      </a>
-    </div>
-    <div class="col-md-6 col-lg-3">
-      <a href="seiko.html" class="text-decoration-none">
-        <div class="category-card position-relative overflow-hidden rounded-4">
-          <img src="https://www.citizenwatch.co.uk/media/catalog/product/n/j/nj0152-51x_catalog.png?optimize=high&bg-color=255,255,255&fit=bounds&height=1000&width=1000&canvas=1000:1000&format=jpeg" alt="Seiko" class="img-fluid w-100 h-100 object-fit-cover">
-          <div class="overlay-text">Seiko</div>
-        </div>
-      </a>
-    </div>
-    <div class="col-md-6 col-lg-3">
+    <!-- Casio -->
+    <div class="col-6 col-md-3">
       <a href="casio.html" class="text-decoration-none">
-        <div class="category-card position-relative overflow-hidden rounded-4">
-          <img src="https://www.citizenwatch.co.uk/media/catalog/product/n/j/nj0152-51x_catalog.png?optimize=high&bg-color=255,255,255&fit=bounds&height=1000&width=1000&canvas=1000:1000&format=jpeg" alt="Casio" class="img-fluid w-100 h-100 object-fit-cover">
-          <div class="overlay-text">Casio</div>
+        <div class="brand-card bg-white p-4 text-center shadow-sm rounded-3 h-100">
+          <img src="https://www.logo.wine/a/logo/Casio/Casio-Logo.wine.svg" 
+               alt="Casio" 
+               class="img-fluid mb-3"
+               style="height: 80px; object-fit: contain;">
+          <h5 class="fw-bold">Casio</h5>
         </div>
       </a>
     </div>
   </div>
 </div>
 
-<!-- 🔥 KIEMELT TERMÉK KATEGÓRIÁK -->
-<div class="container my-5 d-flex justify-content-center" >
-  <div class="row g-4  justify-content-center" style="max-width: 1000px;">    <!-- Legnépszerűbb -->
+<!-- Rólunk Szekció -->
+<div class="about-section bg-light py-5">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-md-6 mb-4 mb-md-0">
+        <img src="https://images.unsplash.com/photo-1556656793-08538906a9f8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" 
+             alt="Csapatunk" 
+             class="img-fluid rounded-3 shadow">
+      </div>
+      <div class="col-md-6">
+        <h2 class="mb-4">Miért válasszon minket?</h2>
+        <p class="lead">25+ év gyakorlattal az óraszakmában, szakértői tanácsadással és exkluzív gyűjteményekkel várjuk minden kedves ügyfelünket.</p>
+        <p>Webshopunk egy iskolai projekt keretében jött létre, ahol a legjobb minőségű órákat kínáljuk versenyképes áron.</p>
+        <a href="rolunk.html" class="btn btn-outline-primary">Rólunk bővebben</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Kiemelt Termékek -->
+<div class="container my-5">
+  <h2 class="text-center mb-5">Kiemelt ajánlataink</h2>
+  <div class="row g-4">
+    <!-- Akciós -->
+    <div class="col-md-6 col-lg-3">
+      <a href="akcios.html" class="text-decoration-none">
+        <div class="promo-card bg-danger text-white p-4 rounded-3 text-center shadow h-100">
+          <h3>🔥 Akciós</h3>
+          <p class="mb-0">Legjobb áron válasszon óráink közül</p>
+        </div>
+      </a>
+    </div>
+
+    <!-- Legnépszerűbb -->
     <div class="col-md-6 col-lg-3">
       <a href="legnepszerubb.html" class="text-decoration-none">
-        <div class="category-card position-relative overflow-hidden rounded-4">
-          <img src="https://www.citizenwatch.co.uk/media/catalog/product/n/j/nj0152-51x_catalog.png?optimize=high&bg-color=255,255,255&fit=bounds&height=1000&width=1000&canvas=1000:1000&format=jpeg" alt="Legnépszerűbb termékek" class="img-fluid w-100 h-100 object-fit-cover">
-          <div class="overlay-text">Legnépszerűbb termékek</div>
+        <div class="promo-card bg-primary text-white p-4 rounded-3 text-center shadow h-100">
+          <h3>⭐ Top termékek</h3>
+          <p class="mb-0">Ügyfeleink kedvencei</p>
         </div>
       </a>
     </div>
@@ -89,9 +158,9 @@
     <!-- Legolcsóbb -->
     <div class="col-md-6 col-lg-3">
       <a href="legolcsobb.html" class="text-decoration-none">
-        <div class="category-card position-relative overflow-hidden rounded-4">
-          <img src="https://www.citizenwatch.co.uk/media/catalog/product/n/j/nj0152-51x_catalog.png?optimize=high&bg-color=255,255,255&fit=bounds&height=1000&width=1000&canvas=1000:1000&format=jpeg" alt="Legolcsóbb termékeink" class="img-fluid w-100 h-100 object-fit-cover">
-          <div class="overlay-text">Legolcsóbb termékeink</div>
+        <div class="promo-card bg-success text-white p-4 rounded-3 text-center shadow h-100">
+          <h3>💰 Legolcsóbb</h3>
+          <p class="mb-0">Kiváló minőség kedvező áron</p>
         </div>
       </a>
     </div>
@@ -99,19 +168,9 @@
     <!-- Legkülönlegesebb -->
     <div class="col-md-6 col-lg-3">
       <a href="legkulonlegesebb.html" class="text-decoration-none">
-        <div class="category-card position-relative overflow-hidden rounded-4">
-          <img src="https://www.citizenwatch.co.uk/media/catalog/product/n/j/nj0152-51x_catalog.png?optimize=high&bg-color=255,255,255&fit=bounds&height=1000&width=1000&canvas=1000:1000&format=jpeg" alt="Legkülönlegesebb termékeink" class="img-fluid w-100 h-100 object-fit-cover">
-          <div class="overlay-text">Legkülönlegesebb termékeink</div>
-        </div>
-      </a>
-    </div>
-
-    <!-- Akciós -->
-    <div class="col-md-6 col-lg-3">
-      <a href="akcios.html" class="text-decoration-none">
-        <div class="category-card position-relative overflow-hidden rounded-4">
-          <img src="https://www.citizenwatch.co.uk/media/catalog/product/n/j/nj0152-51x_catalog.png?optimize=high&bg-color=255,255,255&fit=bounds&height=1000&width=1000&canvas=1000:1000&format=jpeg" alt="Akciós óráink" class="img-fluid w-100 h-100 object-fit-cover">
-          <div class="overlay-text">Akciós óráink</div>
+        <div class="promo-card bg-warning text-dark p-4 rounded-3 text-center shadow h-100">
+          <h3>✨ Különleges</h3>
+          <p class="mb-0">Exkluzív, limitált kollekciók</p>
         </div>
       </a>
     </div>

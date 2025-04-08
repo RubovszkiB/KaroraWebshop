@@ -1,19 +1,13 @@
 <?php
-// db.php: Kapcsolódás létrehozása a mkodo adatbázishoz a webshopban
+$host = 'localhost';
+$dbname = 'ora_webshop';
+$username = 'root';
+$password = '';
 
-// Konfigurációs adatok beolvasása
-require_once 'config.php';
-
-// MySQLi kapcsolat létrehozása
-$connection = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
-
-// Kapcsolat ellenőrzése
-if ($connection->connect_error) {
-    die("Kapcsolódási hiba: " . $connection->connect_error);
+try {
+    $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $username, $password);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+    die("Kapcsolódási hiba: " . $e->getMessage());
 }
-
-// Karakterkódolás beállítása
-$connection->set_charset("utf8");
-
-// A $connection változó mostantól használható az adatbázis műveletekhez
 ?>

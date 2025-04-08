@@ -6,9 +6,36 @@
   <title>Legnépszerűbb Órák</title>
   <link rel="stylesheet" href="styles.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    .spring-sale {
+      background-color: #ff6b6b;
+      color: white;
+      padding: 1rem;
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+    .category-card {
+      height: 300px;
+      overflow: hidden;
+      transition: transform 0.3s;
+    }
+    .category-card:hover {
+      transform: scale(1.03);
+    }
+    .overlay-text {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(0, 0, 0, 0.7);
+      color: white;
+      padding: 1rem;
+      font-size: 1.2rem;
+      text-align: center;
+    }
+  </style>
 </head>
 <body class="d-flex flex-column min-vh-100">
-
   <!-- NAVBAR -->
   <nav class="navbar navbar-expand-lg bg-secondary text-white fw-bold">
     <div class="container-fluid">
@@ -21,7 +48,7 @@
           <li class="nav-item"><a class="nav-link text-white" href="index.html">Főoldal</a></li>
           <li class="nav-item"><a class="nav-link text-white" href="#">Rólunk</a></li>
           <li class="nav-item"><a class="nav-link text-white" href="#">Admin</a></li>
-          <li class="nav-item"><a class="nav-link text-white" href="kosar.html">🛒 Kosár</a></li>
+          <li class="nav-item"><a class="nav-link text-white" href="kosar.php">🛒 Kosár</a></li>
         </ul>
       </div>
     </div>
@@ -36,74 +63,87 @@
   <div class="container my-5">
     <h2 class="text-center mb-4">Legnépszerűbb Óráink</h2>
     <div class="row g-4 justify-content-center">
+      <!-- Rolex -->
       <div class="col-md-4">
         <a href="submariner.html" class="text-decoration-none">
           <div class="category-card position-relative rounded-4">
-            <img src="images/submariner.jpg" alt="Submariner" class="img-fluid w-100 object-fit-cover">
+            <img src="images/submariner.jpg" alt="Submariner" class="img-fluid w-100 h-100 object-fit-cover">
             <div class="overlay-text">Rolex Submariner</div>
           </div>
         </a>
       </div>
+
+      <!-- Omega -->
       <div class="col-md-4">
         <a href="speedmaster.html" class="text-decoration-none">
           <div class="category-card position-relative rounded-4">
-            <img src="images/speedmaster.jpg" alt="Speedmaster" class="img-fluid w-100 object-fit-cover">
+            <img src="images/speedmaster.jpg" alt="Speedmaster" class="img-fluid w-100 h-100 object-fit-cover">
             <div class="overlay-text">Omega Speedmaster</div>
           </div>
         </a>
       </div>
+
+      <!-- Casio -->
       <div class="col-md-4">
         <a href="gshock.html" class="text-decoration-none">
           <div class="category-card position-relative rounded-4">
-            <img src="images/gshock.jpg" alt="G-Shock" class="img-fluid w-100 object-fit-cover">
+            <img src="images/gshock.jpg" alt="G-Shock" class="img-fluid w-100 h-100 object-fit-cover">
             <div class="overlay-text">Casio G-Shock</div>
           </div>
         </a>
       </div>
+
+      <!-- Seiko -->
       <div class="col-md-4">
         <a href="presage.html" class="text-decoration-none">
           <div class="category-card position-relative rounded-4">
-            <img src="images/presage.jpg" alt="Presage" class="img-fluid w-100 object-fit-cover">
+            <img src="images/presage.jpg" alt="Presage" class="img-fluid w-100 h-100 object-fit-cover">
             <div class="overlay-text">Seiko Presage</div>
           </div>
         </a>
       </div>
+
+      <!-- További termékek -->
       <div class="col-md-4">
         <a href="planet-ocean.html" class="text-decoration-none">
           <div class="category-card position-relative rounded-4">
-            <img src="images/planet-ocean.jpg" alt="Planet Ocean" class="img-fluid w-100 object-fit-cover">
+            <img src="images/planet-ocean.jpg" alt="Planet Ocean" class="img-fluid w-100 h-100 object-fit-cover">
             <div class="overlay-text">Omega Planet Ocean</div>
           </div>
         </a>
       </div>
+
       <div class="col-md-4">
         <a href="vintage.html" class="text-decoration-none">
           <div class="category-card position-relative rounded-4">
-            <img src="images/vintage.jpg" alt="Vintage" class="img-fluid w-100 object-fit-cover">
+            <img src="images/vintage.jpg" alt="Vintage" class="img-fluid w-100 h-100 object-fit-cover">
             <div class="overlay-text">Casio Vintage</div>
           </div>
         </a>
       </div>
+
       <div class="col-md-4">
         <a href="seamaster.html" class="text-decoration-none">
           <div class="category-card position-relative rounded-4">
-            <img src="images/seamaster.jpg" alt="Seamaster" class="img-fluid w-100 object-fit-cover">
+            <img src="images/seamaster.jpg" alt="Seamaster" class="img-fluid w-100 h-100 object-fit-cover">
             <div class="overlay-text">Omega Seamaster</div>
           </div>
         </a>
       </div>
+
       <div class="col-md-4">
         <a href="edifice.html" class="text-decoration-none">
           <div class="category-card position-relative rounded-4">
-            <img src="images/edifice.jpg" alt="Edifice" class="img-fluid w-100 object-fit-cover">
+            <img src="images/edifice.jpg" alt="Edifice" class="img-fluid w-100 h-100 object-fit-cover">
             <div class="overlay-text">Casio Edifice</div>
           </div>
         </a>
       </div>
+
       <div class="col-md-4">
         <a href="grand-seiko.html" class="text-decoration-none">
           <div class="category-card position-relative rounded-4">
-            <img src="images/grand-seiko.jpg" alt="Grand Seiko" class="img-fluid w-100 object-fit-cover">
+            <img src="images/grand-seiko.jpg" alt="Grand Seiko" class="img-fluid w-100 h-100 object-fit-cover">
             <div class="overlay-text">Grand Seiko</div>
           </div>
         </a>
@@ -114,12 +154,11 @@
   <!-- FOOTER -->
   <footer class="footer bg-info text-white text-center p-3 mt-auto">
     <div class="container">
-      <p class="mb-0">Elérhetőség: +36 20 123 4567 - Miskolc, Kandó Kálmán tér 1. - rubovszkib@kkszki.hu</p>
+      <p class="mb-0">Elérhetőség: +36 20 123 4567 - Miskolc, Kandó Kálmán tér 1.</p>
       <p>Adatvédelem | Felhasználási Feltételek | Süti Kezelés</p>
     </div>
   </footer>
 
-  <script src="scripts.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
