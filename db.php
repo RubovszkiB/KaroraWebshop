@@ -1,8 +1,8 @@
 <?php
-$host = 'localhost';
-$dbname = 'ora_webshop';
-$username = 'root';
-$password = '';
+$host = 'server.fh2.hu';
+$dbname = 'v2labgwj_kando5';
+$username = 'v2labgwj_kando5';
+$password = 'ZJVWEkpkWk9MYYfLJjft';
 
 try {
     $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $username, $password);

@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2025. Ápr 08. 18:35
+-- Létrehozás ideje: 2025. Ápr 09. 10:08
 -- Kiszolgáló verziója: 10.4.32-MariaDB
--- PHP verzió: 8.0.30
+-- PHP verzió: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -80,7 +80,17 @@ INSERT INTO `products` (`id`, `name`, `price`, `description`, `image_url`, `bran
 (37, 'Seiko SARB033', 190000, 'Minimalista dizájn, automata szerkezet.', 'https://example.com/seiko-sarb033.jpg', 'Seiko'),
 (38, 'Seiko Chronograph', 89990, 'Pontos stopperfunkció, sportos stílus.', 'https://example.com/seiko-chrono.jpg', 'Seiko'),
 (39, 'Seiko Lukia', 135000, 'Női órakollekció elegáns megjelenéssel.', 'https://example.com/seiko-lukia.jpg', 'Seiko'),
-(40, 'Seiko Alpinist', 210000, 'Kalandozóknak tervezve, ikonikus zöld számlappal.', 'https://example.com/seiko-alpinist.jpg', 'Seiko');
+(40, 'Seiko Alpinist', 210000, 'Kalandozóknak tervezve, ikonikus zöld számlappal.', 'https://example.com/seiko-alpinist.jpg', 'Seiko'),
+(41, 'Omega Speedmaster Professional', 3200000, 'A legendás \'Moonwatch\', amely az űrbe is eljutott.', 'https://example.com/omega-speedmaster.jpg', 'Omega'),
+(42, 'Omega Seamaster Diver 300M', 2500000, 'Ikonikus búváróra kerámia lünettával és hullámmintás számlappal.', 'https://example.com/omega-seamaster-diver.jpg', 'Omega'),
+(43, 'Omega Seamaster Planet Ocean', 2900000, 'Professzionális búváróra modern stílussal és nagy WR-rel.', 'https://example.com/omega-planet-ocean.jpg', 'Omega'),
+(44, 'Omega Constellation Co-Axial', 2300000, 'Elegáns és ikonikus design, csillagászati pontosság.', 'https://example.com/omega-constellation.jpg', 'Omega'),
+(45, 'Omega De Ville Prestige', 2100000, 'Letisztult elegancia és klasszikus megjelenés.', 'https://example.com/omega-deville.jpg', 'Omega'),
+(46, 'Omega Aqua Terra', 2700000, 'Sportos és elegáns, fa mintás számlappal.', 'https://example.com/omega-aqua-terra.jpg', 'Omega'),
+(47, 'Omega Speedmaster 57', 3100000, 'Vintage stílus modern technológiával.', 'https://example.com/omega-speedmaster57.jpg', 'Omega'),
+(48, 'Omega Seamaster 1948', 3500000, 'Limitált kiadás a történelmi örökség előtt tisztelegve.', 'https://example.com/omega-seamaster1948.jpg', 'Omega'),
+(49, 'Omega Globemaster', 2950000, 'A világ első Master Chronometer tanúsítvánnyal rendelkező órája.', 'https://example.com/omega-globemaster.jpg', 'Omega'),
+(50, 'Omega Railmaster', 2400000, 'Mágneses mezőkkel szembeni ellenállás és letisztult stílus.', 'https://example.com/omega-railmaster.jpg', 'Omega');
 
 -- --------------------------------------------------------
 
@@ -101,7 +111,8 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`) VALUES
 (1, 'balkazs sda', 'saddsa@afds.com', '$2y$10$k/iL5IcUURb6wv4hr/Wo3.3EKoUpE6Ux7P6E4folp.kEEtCjY3Wya'),
-(2, 'BALAZS', 'BALAZS@BALAZS.BALAZS', '$2y$10$LRoN1c8g8IfB34/Mg2vHGuVHXYsQySf9JS30Lmd3HBM8N1EVNIZNy');
+(2, 'BALAZS', 'BALAZS@BALAZS.BALAZS', '$2y$10$LRoN1c8g8IfB34/Mg2vHGuVHXYsQySf9JS30Lmd3HBM8N1EVNIZNy'),
+(3, 'fasz', 'fasz@freemail.com', '$2y$10$ni001jRavObH8bmT9N4a4e5tOpf6Rv4TInhBzStI0KueGVmD/Jtq6');
 
 --
 -- Indexek a kiírt táblákhoz
@@ -128,13 +139,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT a táblához `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 
 --
 -- AUTO_INCREMENT a táblához `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
