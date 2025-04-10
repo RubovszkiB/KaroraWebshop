@@ -54,14 +54,21 @@ session_start();
       color: #333;
     }
 
+    /* Módosított footer stílus */
     .footer {
       background-color: #17a2b8;
       color: white;
       text-align: center;
       padding: 10px;
-      position: absolute;
-      bottom: 0;
+      margin-top: auto; /* Flexbox automatikus margó a footer alul tartásához */
       width: 100%;
+    }
+
+    /* Biztosítjuk, hogy a body kitöltse a teljes képernyőt */
+    body {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
     }
   </style>
 </head>
