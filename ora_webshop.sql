@@ -41,7 +41,7 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `name`, `price`, `description`, `image_url`, `brand`) VALUES
-(1, 'Rolex Submariner', 3990000, 'A legenda maga, 300 méterig vízálló', 'https://media.rolex.com/image/upload/q_auto:eco/f_auto/t_v7-majesty/c_limit,w_3840/v1/catalogue/2025/upright-c/m126610ln-0001https://media.rolex.com/image/upload/q_auto:eco/f_auto/t_v7-majesty/c_limit,w_3840/v1/catalogue/2025/upright-c/m126610ln-0001', 'Rolex'),
+(1, 'Rolex Submariner', 3990000, 'A legenda maga, 300 méterig vízálló', 'https://images.watchfinder.co.uk/imgv3/stock/317622/Rolex-Submariner-16800-317622-241128-165654.jpg;quality=90;h=600,%20https://images.watchfinder.co.uk/imgv3/stock/317622/Rolex-Submariner-16800-317622-241128-165654.jpg;quality=55;h=1200%202x', 'Rolex'),
 (2, 'Rolex Datejust', 3500000, 'Klasszikus elegancia, örök divat', 'https://www.watchswiss.com/wp-content/uploads/2024/05/m126234-0051_drp-upright-bba-with-shadow_mobile-694x1024.png', 'Rolex'),
 (3, 'Rolex GMT-Master', 4200000, 'Több időzóna követése utazóknak', 'https://www.watchswiss.com/wp-content/uploads/2024/05/m126710grnr-0003_drp-upright-bba-with-shadow_mobile-694x1024.png', 'Rolex'),
 (4, 'Rolex Daytona', 4500000, 'A versenyzés ihlette kronográf óra', 'https://img.chrono24.com/images/uhren/35852925-8ufzex0nvw0zimsng35v1l3c-ExtraLarge.jpg', 'Rolex'),
